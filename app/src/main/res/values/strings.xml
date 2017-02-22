@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Gestion Livraison</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="title_activity_new_delivery">NewDeliveryActivity</string>
+    <string name="deliveries">Deliveries</string>
+    <string name="new_delivery">New delivery</string>
+    <string name="userInfo">My information</string>
+    <string name="lblComments">Commentaires</string>
+    <string name="lblDeliveryAddress">Adresse destination</string>
+    <string name="lblClient">Client</string>
+    <string name="lblDeliveryReference">Destinateur</string>
+    <string name="lblTakePicture">Prendre une photo</string>
+    <string name="lblStartDeliveryProof">Preuve de receiption</string>
+    <string name="lblSave">Enregistrer</string>
+    <string name="lblCancel">Annuler</string>
+    <string name="lblStartDate"><![CDATA[Date & Heure]]></string>
+
+    <string-array name="clients">
+        <item>ECOBANK</item>
+        <item>BRAKINA</item>
+        <item>BIB</item>
+        <item>UEMOA</item>
+    </string-array>
+</resources>
