@@ -19,22 +19,40 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Iterator;
+import java.util.StringTokenizer;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class SendPostRequest extends AsyncTask<String, Void, String> {
- 
+public class LoginStrategy extends AsyncTask<String, Void, String> {
+        public static String AUTHORIZED = "AUTHORIZED";
+        private static String NON_AUTHORIZED = "NON_AUTHORIZED";
+        private String loginEndpointUrl = "http://10.0.2.2:8080/loginFromMobile";
+
+
+    // you may separate this or combined to caller class.
+    public interface AsyncResponse {
+        void processFinish(String output);
+    }
+
+    private AsyncResponse delegate = null;
+
+    public LoginStrategy(AsyncResponse delegate){
+        this.delegate = delegate;
+    }
+
         protected void onPreExecute(){
 
         }
  
-        protected String doInBackground(String... arg0) {
-            try {
-                URL url = new URL("http://10.0.2.2:8080/loginFromMobile");
+        protected String doInBackground(String... args) {
+            try
+            {
+                //10.0.2.2 is the localhost of my computer
+                URL url = new URL(loginEndpointUrl);
 
                 JSONObject postDataParams = new JSONObject();
-                postDataParams.put("name", "abc");
-                postDataParams.put("email", "abc@gmail.com");
+                postDataParams.put("login", args[0]);
+                postDataParams.put("password", args[1]);
                 Log.e("params", postDataParams.toString());
 
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -56,24 +74,26 @@ public class SendPostRequest extends AsyncTask<String, Void, String> {
 
                 if (responseCode == HttpsURLConnection.HTTP_OK)
                 {
-                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//
+//                    StringBuilder sb = new StringBuilder("");
+//                    String line;
+//
+//                    while ((line = in.readLine()) != null)
+//                    {
+//                        sb.append(line);
+//                        break;
+//                    }
+//
+//                    in.close();
+//
+//                    return sb.toString();
+                    return AUTHORIZED;
 
-                    StringBuilder sb = new StringBuilder("");
-                    String line;
-
-                    while ((line = in.readLine()) != null)
-                    {
-                        sb.append(line);
-                        break;
-                    }
-
-                    in.close();
-
-                    return sb.toString();
-
-                } else
+                }
+                else
                 {
-                    return "false : " + responseCode;
+                    return NON_AUTHORIZED;
                 }
             }
             catch(Exception e)
@@ -81,13 +101,11 @@ public class SendPostRequest extends AsyncTask<String, Void, String> {
                 Log.println(Log.ERROR, "", e.getMessage());
                 return "Exception: " + e.getMessage();
             }
-//            return "";
         }
  
         @Override
         protected void onPostExecute(String result) {
-//            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
-            System.out.println("OK");
+            delegate.processFinish(result);
         }
 
     private String getPostDataString(JSONObject params) throws Exception {

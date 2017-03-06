@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="horizontal"
+              android:layout_marginLeft="10dp"
+              android:layout_marginStart="10dp"
+              android:layout_marginTop="5dp">
+
+        <ImageView
+            android:layout_width="59dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_menu_new_delivery"
+            android:id="@+id/imageView2"
+            />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:background="@drawable/custom_delivery_item_border"
+            >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="278dp"
+                android:layout_height="31dp">
+
+                <TextView
+                    android:text="@string/lblSender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:layout_weight="0.18"/>
+
+                <TextView
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtSender"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:text="@string/lblReceiver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView3"
+                    android:layout_weight="0.18"/>
+
+                <TextView
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtReceiver"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+</LinearLayout>

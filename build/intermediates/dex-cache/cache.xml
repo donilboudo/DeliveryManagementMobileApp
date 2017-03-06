@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="841881aa2c4c8f5c08485ec589bf078b027d43cf">
+        sha1="3dbd4822e164ecfb9f77d3f6cf0aac7f2a60dd2a">
         <dex dex="/Users/fabrice/AndroidStudioProjects/GestionLivraison/DeliveryManagementMobileApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_383537e96737aa06e2e4c6eb9a48f431b50a7b38/classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="8e4720d96c12c0dadca93bcd6df559dd69eef089">
+        sha1="c810c414f93d68d4c56be49f53594eb6fe33e4dc">
         <dex dex="/Users/fabrice/AndroidStudioProjects/GestionLivraison/DeliveryManagementMobileApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_c3efbdfcc87a17c0047704779af769f8951967d1/classes.dex" />
     </item>
     <item

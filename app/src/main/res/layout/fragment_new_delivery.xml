@@ -1,38 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_new_delivery"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.fabrice.gestionlivraison.activities.NewDeliveryActivity">
-
-
-    <!--bottom bar-->
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@color/colorPrimary"
-        app:itemIconTint="@color/colorBlack"
-        app:itemTextColor="@color/colorWhite"
-        app:menu="@menu/bottom_nav_bar"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:id="@+id/new_delivery"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context="com.example.fabrice.gestionlivraison.fragments.NewDeliveryFragment">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_above="@+id/bottom_navigation"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="match_parent">
 
         <!-- Date and hour -->
         <LinearLayout
@@ -46,25 +22,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
                 android:layout_marginStart="0dp"
-                android:id="@+id/lblStartDate"/>
+                android:id="@+id/lblStartDate"
+                android:clickable="false"
+                android:focusable="false"
+                android:textIsSelectable="false"
+                android:inputType="none"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:id="@+id/txtStartDate"
+                android:inputType="date"
                 android:editable="false"/>
 
             <TextView
                 android:text="@string/lblClient"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/lblClient"/>
+                android:id="@+id/lblSender"/>
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/spClient"
+                android:id="@+id/spSender"
                 android:entries="@array/clients"
                 android:layout_marginTop="10dp"/>
 
@@ -72,7 +53,7 @@
                 android:text="@string/lblDeliveryReference"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/lblDeliveryReference"
+                android:id="@+id/lblReceiverReference"
                 android:layout_marginTop="15dp"/>
 
             <EditText
@@ -80,26 +61,27 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/txtDeliveryReference"/>
+                android:id="@+id/txtReceiverReference"/>
 
             <TextView
                 android:text="@string/lblDeliveryAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/lblDeliveryAddress"/>
+                android:id="@+id/lblReceiverAddress"
+                android:layout_marginTop="10dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/txtDeliveryAddress"/>
+                android:id="@+id/txtReceiverAddress"/>
 
             <TextView
                 android:text="@string/lblComments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/lblComments"
+                android:id="@+id/lblStartComments"
                 android:layout_marginTop="10dp"/>
 
             <EditText
@@ -107,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:ems="10"
-                android:id="@+id/txtComments"/>
+                android:id="@+id/txtStartComments"/>
 
             <TextView
                 android:text="@string/lblStartDeliveryProof"
@@ -120,17 +102,17 @@
                 android:text="@string/lblTakePicture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnProof"
-                android:onClick="takePicture"/>
+                android:id="@+id/btnProof"/>
 
             <ImageView
-                android:layout_width="340dp"
-                android:layout_height="65dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 app:srcCompat="@drawable/test_view_black_border"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginEnd="15dp"
-                android:id="@+id/imgStartDeliveryProof" />
+                android:id="@+id/imgStartDeliveryProof"
+                android:contentDescription=""
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"/>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -158,8 +140,6 @@
                     android:layout_marginEnd="10dp"
                     />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
-
-</RelativeLayout>
+</FrameLayout>
